@@ -1,0 +1,68 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}*/
+
+.form {
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  /* cuộn khi nhảy trang */
+  scroll-behavior: smooth;
+  /* font-family: Arial, Helvetica, Arial sans-serif; */
+  padding: 50px 150px;
+  border: solid 2px black;
+}
+
+.form-heading {
+  font-size: 2rem;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+.form-container {
+  font-size: 1.4rem;
+}
+
+.form-content {
+  padding-top: 30px;
+}
+
+.form-content--heading {
+}
+
+.form-item {
+  padding-bottom: 15px;
+}
+.form-item--checkbox {
+  height: 20px;
+  width: 20px;
+}
+.form-item--content {
+  padding-left: 10px;
+}
+.form-button {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.form-button button {
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.4rem;
+  background-color: antiquewhite;
+}
+
+.chartBox {
+  width: 700px;
+  /* padding: 20px; */
+  /* border-radius: 20px; */
+  /* border: solid 3px rgba(54, 162, 235, 1); */
+  background: white;
+  height: 500px !important;
+  width: 500px !important;
+  text-align: center;
+}
