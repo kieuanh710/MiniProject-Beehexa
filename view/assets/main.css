@@ -1,27 +1,58 @@
-/* * {
+* {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}*/
+  text-decoration: none;
+  box-sizing: border-box;
+  
+}
 
-.form {
+html {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
-  /* cuộn khi nhảy trang */
   scroll-behavior: smooth;
-  /* font-family: Arial, Helvetica, Arial sans-serif; */
   padding: 50px 150px;
-  border: solid 2px black;
+  /* font-family: Arial, Helvetica, Arial sans-serif; */
 }
 
 .form-heading {
   font-size: 2rem;
   text-align: center;
+  padding-bottom: 50px;
 }
+
+.introduce {
+  margin-bottom: 1rem;
+}
+.introduce p {
+  font-size: 1.4rem;
+  margin-bottom: 1rem
+}
+.introduce blockquote {
+  font-weight: bold;
+}
+.introduce img {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+blockquote {
+  padding: 0.5rem 1.25rem;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  border-left: 5px solid #294263;
+  font-style: italic;
+}
+
+.form {
+  /* padding: 50px 150px; */
+}
+
 h2 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  padding-top: 50px;
 }
 .form-container {
   font-size: 1.4rem;
@@ -32,10 +63,13 @@ h2 {
 }
 
 .form-content--heading {
+  padding-bottom: 30px;
 }
 
 .form-item {
   padding-bottom: 15px;
+  display: flex;
+  align-items: center;
 }
 .form-item--checkbox {
   height: 20px;

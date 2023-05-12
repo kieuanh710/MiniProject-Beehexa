@@ -1,16 +1,16 @@
 function showChart() {
   //get id selected
-  const countType1 = document.querySelectorAll(
+  const type1 = document.querySelectorAll(
     'input[name^="type-1--"]:checked'
   ).length;
 
   // SETUP
   const data = {
-    labels: ["Openness", "Respect", "Courage", "Focus", "Commitment"],
+    labels: ["Courage", "Respect", "a", "Focus", "Commitment"],
     datasets: [
       {
         label: "Scrum values",
-        data: [countType1, 1, 4, 3, 2],
+        data: [type1, 1, 4, 3, 2],
         backgroundColor: [
           "rgba(255, 26, 104, 0.2)",
           "rgba(54, 162, 235, 0.2)",
