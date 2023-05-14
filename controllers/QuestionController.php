@@ -1,36 +1,51 @@
 <?php
 require_once './models/QuestionModel.php';
-require_once './core/database.php';
 class QuestionController extends BaseController{
   private $questions;
     public function __construct(){
-        $this->questions = new QuestionModel();
+      $this->questions = new QuestionModel();
     }
   public function index()
   {
     $questions = $this->questions->getAll();
-    // $a = [
-    //   [ 
-    //     'id'=>1,
-    //     'name' => 'laptop' 
-    //   ],
-    // ];
     return $this->view('demo', [
         'questions' => $questions,
-        // 'a' => $a,
     ]);
    
   }
   
   public function update(){
     $courageQuestion = isset($_POST['courage']) ? implode(",", $_POST['courage']) : array();
-    // $opennessQuestion = isset($_POST['openness']) ? implode(",", $_POST['openness']) : "";
+    $opennessQuestion = isset($_POST['openness']) ? implode(",", $_POST['openness']) : "";
+    $focusQuestion = isset($_POST['focus']) ? implode(",", $_POST['focus']) : "";
+    $commitmentQuestion = isset($_POST['commitment']) ? implode(",", $_POST['commitment']) : "";
+    $respectQuestion = isset($_POST['respect']) ? implode(",", $_POST['respect']) : "";
     
-    $result = $this->questions->updateQuestionValue($courageQuestion);
-    $count = $this->questions->countCheckedCheckboxes();
+    
+    $result1 = $this->questions->updateCourage($courageQuestion);
+    $result2 = $this->questions->updateOpenness($opennessQuestion);
+    $result3 = $this->questions->updateFocus($focusQuestion);
+    $result4 = $this->questions->updateCommitment($commitmentQuestion);
+    $result5 = $this->questions->updateRespect($respectQuestion);
+    
+    $count1 = $this->questions->countCourage();
+    $count2 = $this->questions->countOpenness();
+    $count3 = $this->questions->countFocus();
+    $count4 = $this->questions->countCommitment();
+    $count5 = $this->questions->countRespect();
+   
+    // print_r($focusQuestion);
     return $this->view('radar-chart', [
-      'results'=> $result,
-      'count' => $count,
+      'result1'=> $result1,
+      'result2'=> $result2,
+      'result3'=> $result3,
+      'result4'=> $result4,
+      'result5'=> $result5,
+      'count1' => $count1,
+      'count2' => $count2,
+      'count3' => $count3,
+      'count4' => $count4,
+      'count5' => $count5,
     ]);     
         // print_r($_POST);
   }
@@ -48,5 +63,6 @@ class QuestionController extends BaseController{
   //   $data = array('count' => $count);
   //   return $data;
   // }
+
 
 }

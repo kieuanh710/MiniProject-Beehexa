@@ -1,69 +1,102 @@
 <?php
 require_once './core/database.php';
-class QuestionModel{
-  
+class QuestionModel
+{
   private $conn;
-  public function __construct(){
+  public function __construct()
+  {
     $this->conn = new Database();
   }
-    public function getAll() {
-      $sql = "SELECT * FROM courage_type1";
-      $result = $this->conn->getConnection()->query($sql);
-      return $result->fetchAll(PDO::FETCH_ASSOC);
-    }
-    // public function updateQuestionCount($id){
-    //   $sql = "UPDATE courage_type1 SET value = 1 WHERE id = $id";
-    //   return $this->conn->getConnection()->prepare($sql);
-    // }
-  
-    public function updateQuestionValue($courageQuestion) {
-      // update courage answers in database
-      $courageQuery = "UPDATE courage_type1 SET value = 0";
+  public function getAll()
+  {
+    $sql = "SELECT * FROM courage_type1";
+    $result = $this->conn->getConnection()->query($sql);
+    return $result->fetchAll(PDO::FETCH_ASSOC);
+  }
+  public function updateCourage($courageQuestion)
+  {
+    // update courage answers in database
+    $courageQuery = "UPDATE courage_type1 SET value = 0 WHERE type_name ='courage'";
+    $this->conn->getConnection()->query($courageQuery);
+    $answers = explode(',', $courageQuestion);
+    foreach ($answers as $answer) {
+      $courageQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer AND type_name ='courage';";
       $this->conn->getConnection()->query($courageQuery);
-      $answers = explode(',', $courageQuestion);
-      foreach ($answers as $answer) {
-          $courageQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer;";
-          $this->conn->getConnection()->query($courageQuery);
-          // print_r($courageQuery);
-      }
+      // print_r($courageQuery);
     }
-  public function countCheckedCheckboxes() {
-      $query = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'courage'";
-      $result = $this->conn->getConnection()->query($query);
-      return $result->fetch(PDO::FETCH_ASSOC)['total'];
-      
+  }
+  public function updateOpenness($opennessQuestion)
+  {  
+    $opennessQuery = "UPDATE courage_type1 SET value = 0 WHERE type_name ='openness'";
+    $this->conn->getConnection()->query($opennessQuery);
+    $answers = explode(',', $opennessQuestion);
+    foreach ($answers as $answer) {
+      $opennessQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer AND type_name ='openness';";
+      $this->conn->getConnection()->query($opennessQuery);
+      // print_r($opennessQuery);
     }
-
-} 
-
-// class FormModel
-// 
-
-//     public function getCourageData() {
-//       $db = new PDO("mysql:host=localhost;dbname=miniproject", "username", "password");
-
-//       $questionIds = array(1, 2, 3);
-//       $data = array();
-//       foreach ($questionIds as $id) {
-//           // Retrieve count of checkbox ticks for this question from the database
-//           $count = $db->query("SELECT COUNT(*) FROM courage_type1 WHERE id = $id ")->fetchColumn();
-//           // Add count to data array
-//           $data["Question $id"] = $count;
-//       }
-//       return $data;
-//   }
-
-//   // public function getOpennessData() {
-//   //   $db = new PDO("mysql:host=localhost;dbname=miniproject", "username", "password");
-
-//   //     $questionIds = array(4, 5, 6);
-//   //     $data = array();
-//   //     foreach ($questionIds as $id) {
-//   //         // Retrieve count of checkbox ticks for this question from the database
-//   //         $count = $db->query("SELECT COUNT(*) FROM responses WHERE question_id = $id AND category = 'Openness'")->fetchColumn();
-//   //         // Add count to data array
-//   //         $data["Question $id"] = $count;
-//   //     }
-//   //     return $data;
-//   // }
-// }
+  }
+  public function updateFocus($focusQuestion)
+  {
+    $focusQuery = "UPDATE courage_type1 SET value = 0 WHERE type_name ='focus'";
+    $this->conn->getConnection()->query($focusQuery);
+    $answers = explode(',', $focusQuestion);
+    foreach ($answers as $answer) {
+      $focusQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer AND type_name ='focus';";
+      $this->conn->getConnection()->query($focusQuery);
+      // print_r($focusQuery);
+    }
+  }
+  public function updateCommitment($commitmentQuestion)
+  {
+    $commitmentQuery = "UPDATE courage_type1 SET value = 0 WHERE type_name ='commitment'";
+    $this->conn->getConnection()->query($commitmentQuery);
+    $answers = explode(',', $commitmentQuestion);
+    foreach ($answers as $answer) {
+      $commitmentQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer AND type_name ='commitment';";
+      $this->conn->getConnection()->query($commitmentQuery);
+      // print_r($commitmentQuery);
+    }
+  }
+  public function updateRespect($respectQuestion)
+  {
+    $respectQuery = "UPDATE courage_type1 SET value = 0 WHERE type_name ='respect'";
+    $this->conn->getConnection()->query($respectQuery);
+    $answers = explode(',', $respectQuestion);
+    foreach ($answers as $answer) {
+      $respectQuery = " UPDATE courage_type1 SET value = 1 WHERE id = $answer AND type_name ='respect';";
+      $this->conn->getConnection()->query($respectQuery);
+      // print_r($respectQuery);
+    }
+  }
+  public function countCourage()
+  {
+    $courage = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'courage'";
+    $result = $this->conn->getConnection()->query($courage);
+    return $result->fetch(PDO::FETCH_ASSOC)['total'];
+  }
+  public function countOpenness()
+  {
+    $courage = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'openness'";
+    $result = $this->conn->getConnection()->query($courage);
+    return $result->fetch(PDO::FETCH_ASSOC)['total'];
+  }
+  public function countFocus()
+  {
+    $courage = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'focus'";
+    $result = $this->conn->getConnection()->query($courage);
+    return $result->fetch(PDO::FETCH_ASSOC)['total'];
+  }
+  public function countRespect()
+  {
+    $courage = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'commitment'";
+    $result = $this->conn->getConnection()->query($courage);
+    return $result->fetch(PDO::FETCH_ASSOC)['total'];
+  }
+  public function countCommitment()
+  {
+    $courage = "SELECT COUNT(*) AS total FROM courage_type1 WHERE value = 1 AND type_name = 'respect'";
+    $result = $this->conn->getConnection()->query($courage);
+    return $result->fetch(PDO::FETCH_ASSOC)['total'];
+  }
+}

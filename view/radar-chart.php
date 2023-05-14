@@ -2,27 +2,107 @@
 <html>
 
 <head>
-    <title>Radar Chart Example</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form scrum value</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="./assets/main.css">
+    <link rel="stylesheet" href="view/assets/main.css" />
+    <link rel="stylesheet" href="view/assets/grid.css" />
 </head>
 
 <body>
-    <?php
-    // require_once ('./controllers/QuestionController.php');
-    ?>
+    <nav class="navbar">
+        <div class="grid wide">
+            <div class="navbar_container">
+                <div class="row">
+                    <div class="col l-3 m-0 c-0">
+                        <a href="" class="navbar_container-logo-link">
+                            <img class="logo-link" src="view/assets/img/scrum.png" alt="Scrum org">
+                        </a>
+                    </div>
+                    <div class="col l-8 m-12 c-12 navbar_container-list--item">
+                        <ul class="navbar_container-list">
+                            <li class="navbar_container-item">
+                                <a href="#" class="navbar_container-link active">About</a>
+                            </li>
+                            <li class="navbar_container-item">
+                                <a href="#" class="navbar_container-link">Training</a>
+                            </li>
+                            <li class="navbar_container-item">
+                                <a href="#" class="navbar_container-link">Certification</a>
+                            </li>
+                            <li class="navbar_container-item">
+                                <a href="#" class="navbar_container-link">Community</a>
+                            </li>
+                            <li class="navbar_container-item">
+                                <a href="#" class="navbar_container-link">Innovations</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-1 m-0 c-0 navbar_container-search">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
+                            class="img-small">
+                        <input type="text" id="search-form" class="navbar_container-search-input"
+                            placeholder="Search...">
 
-    <h1>Checked Items Count: <?= $count ?></h1>
-    <div class="chartBox">
-        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="chart">
+        <h1>Your chart</h1>
+        <div class="row">
+            <div class="col l-8 m-6 c-12">
+                <div class="chart_radar">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+            <div class="col l-4 m-6 c-12">
+                <div class="chart_form">
+                    <form action="">
+                        <label for="name">Name</label>
+                        <input type="text" id="" name="name" placeholder="Your name.." required>
+
+                        <label for="email">Email</label>
+                        <!-- <input type="email" id="" name="email" placeholder="Your email.." required> -->
+                        <input type="email" id="" name="email" placeholder="Your email.."
+                            title="The domain portion of the email address is invalid (the portion after the @)."
+                            pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$">
+
+                        <input class="chart_form__submit" name="submit" type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <form action="index.php?controller=user&action=handleForm" method="POST">
+        <div class="chart_radar">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="chart_form">
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" id="" name="name" placeholder="Your name.." required>
+
+                <label for="email">Email</label>
+                 <input type="email" id="" name="email" placeholder="Your email.." required> -->
+    <!-- <input type="email" id="" name="email" placeholder="Your email.."
+        title="The domain portion of the email address is invalid (the portion after the @)."
+        pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$">
+
+    <input class="chart_form__submit" name="submit" type="submit" value="Submit">
+    </div> -->
+    <!-- </form>  -->
     </div>
     <script>
     // SETUP
     const data = {
-        labels: ["Openness", "Respect", "Courage", "Focus", "Commitment"],
+        labels: ["Courage", "Openness", "Focus", "Commitment", "Respect"],
         datasets: [{
             label: "Scrum values",
-            data: [<?= $count ?>, 1, 3, 3, 2],
+            data: [<?= $count1 ?>, <?= $count2 ?>, <?= $count3 ?>, <?= $count4 ?>, <?= $count5 ?>],
             backgroundColor: [
                 "rgba(255, 26, 104, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
@@ -70,16 +150,23 @@
     const myChart = new Chart(document.getElementById("myChart"), config);
 
     // Instantly assign Chart.js version
-    const chartVersion = document.getElementById("chartVersion");
-    chartVersion.innerText = Chart.version;
+    // const chartVersion = document.getElementById("chartVersion");
+    // chartVersion.innerText = Chart.version;
     // }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.0.0-beta.12/html2canvas.min.js"></script>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
 
 </body>
 
 </html>
 <?php 
-// print_r($results);
-// print_r($results1);
+
+// print_r($result1);
+// print_r($result2);
+// print_r($result3);
+// print_r($result4);
+// print_r($result5);
 ?>
