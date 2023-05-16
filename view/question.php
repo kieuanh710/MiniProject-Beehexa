@@ -2,10 +2,13 @@
 <html>
 
 <head>
-    <title>Contact</title>
+    <title>Scrum value</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="view/assets/grid.css">
-    <link rel="stylesheet" href="view/assets/main.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="view/assets/css/grid.css">
+    <link rel="stylesheet" href="view/assets/css/main.css">
+    <link rel="stylesheet" href="view/assets/css/responsive.css">
 </head>
 
 <body>
@@ -19,8 +22,8 @@
                                 <img class="logo-link" src="view/assets/img/scrum.png" alt="Scrum org">
                             </a>
                         </div>
-                        <div class="col l-8 m-0 c-0 navbar_container-list--item">
-                            <ul class="navbar_container-list">
+                        <div class="col l-6 m-0 c-0 navbar_container-list--item hide-on-mobile-tablet">
+                            <ul class="navbar_container-list hide-on-mobile-tablet">
                                 <li class="navbar_container-item">
                                     <a href="#" class="navbar_container-link active">About</a>
                                 </li>
@@ -38,24 +41,67 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col l-1 m-6 c-6 navbar_container-search">
-                            <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
-                                class="img-small">
-                            <input type="text" id="search-form" class="navbar_container-search-input"
-                                placeholder="Search...">
+                        <div class="col l-3 m-6 c-6 navbar_container-search">
+
+                            <div class="navbar_container-search">
+                                <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
+                                    class="img-small">
+                                <input type="text" id="search-form" class="navbar_container-search-input"
+                                    placeholder="Search...">
+                            </div>
+                            <div class="navbar_search">
+                                <!-- MENU tablet + mobile -->
+                                <div class="navbar_container-menu">
+                                    <label for="nav-mobile-input" class="navbar_container-menu hide-on-pc">
+                                        <!-- <i class="navbar_container-menu-icon fa-solid fa-bars"></i> -->
+                                        <img class="navbar_container-menu-icon"
+                                            src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" width="20"
+                                            height="20" alt="Menu free icon" title="Menu free icon">
+                                    </label>
+                                    <input type="checkbox" hidden name="" class="nav-input" id="nav-mobile-input">
+                                    <label for="nav-mobile-input" class="navbar_menu_overlay"></label>
+                                    <div class="navbar_bar_menu">
+                                        <label for="nav-mobile-input" class="nav_mobile-close">
+                                            <!-- <i class="bar_menu-close fa-solid fa-xmark"></i> -->
+                                            <img class="bar_menu-close" src="
+                                                https://cdn-icons-png.flaticon.com/512/2976/2976286.png " width="20"
+                                                height="20" alt="" title="" class="img-small">
+                                        </label>
+                                        <div class="navbar_container_mb_list">
+                                            <ul>
+                                                <li>
+                                                    <a href="index.html" class="navbar_container-link">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="about.html" class="navbar_container-link">Training</a>
+                                                </li>
+                                                <li>
+                                                    <a href="offers.html"
+                                                        class="navbar_container-link">Certification</a>
+                                                </li>
+                                                <li>
+                                                    <a href="news.html" class="navbar_container-link">Community</a>
+                                                </li>
+                                                <li>
+                                                    <a href="contact.html" class="navbar_container-link">Innovations</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
 
-
-
+        <!--SLIDER  -->
         <div class="slider">
             <div class="grid wide">
                 <div class="slider_container">
                     <div class="row">
-                        <div class="col l-6 m-0 c-0">
+                        <div class="col l-6 m-12 c-12">
                             <div class="slider_container-heading">About Scrum</div>
                             <h2>What is scrum?</h2>
                             <p>
@@ -190,9 +236,10 @@
                             <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                    </div class="form-content">
+                    </div>
                     <!-- COMMITMENT -->
-                    <div>
+
+                    <div class="form-content">
                         <h3 class="form-content--heading">Commitment</h3>
                         <div class="form-item">
                             <?php foreach ($commitmentQuestions as $question): ?>
@@ -206,9 +253,9 @@
                             <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                    </div class="form-content">
+                    </div>
                     <!-- RESPECT -->
-                    <div>
+                    <div class="form-content">
                         <h3 class="form-content--heading">Respect</h3>
                         <div class="form-item">
                             <?php foreach ($respectQuestions as $question): ?>

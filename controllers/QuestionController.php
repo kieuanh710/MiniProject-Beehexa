@@ -22,7 +22,7 @@ class QuestionController extends BaseController{
     $respectQuestions = $this->respectModel->getAll();
     $commitmentQuestions = $this->commitmentModel->getAll();
     
-    return $this->view('demo', [
+    return $this->view('question', [
       'focusQuestions' =>$focusQuestions,
       'opennessQuestions' =>$opennessQuestions,
       'courageQuestions' =>$courageQuestions,

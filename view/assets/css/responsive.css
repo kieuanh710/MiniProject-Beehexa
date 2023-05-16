@@ -1,0 +1,129 @@
+/* PC */
+@media (max-width: 64em) {
+    .hide-on-pc{
+        display: none;
+    }
+}
+
+/* Tablet + Mobile */
+@media (max-width: 63.9375em){
+    .hide-on-mobile-tablet{
+        display: none !important;
+    }
+    /* slider */
+    .slider_container {
+        padding: 40px 0px;
+    }
+    .slider_container-heading,
+    .slider_container p{
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+    .slider_container-button {
+        padding: 1.8rem 2.5rem;
+        font-size: 1.6rem;
+    }
+    
+    .navbar_container-search{
+        display: flex;
+        justify-content: right;
+    }
+    .navbar_container-menu{
+        font-size: 20px;
+        color: var(--white-color);
+        font-weight: 600;
+        margin-left: 15px;
+        display: block;
+    }
+    .container_form{
+        padding: 50px 50px;
+    }
+    .container_form-introduce{
+        font-size: 1.8rem;
+    }
+    .container_form-introduce img {
+        width: 70%;
+        height: 70%;
+        padding: 0;
+    }
+    .container_form-introduce h2{
+        font-size: 2.2rem;
+    }
+    .form-content{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    .form-item--content input{
+        width: 25px;
+        height: 25px;
+    }
+    .form-button--reset,
+    .form-button input{
+        padding: 20px 50px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em ){
+   
+    .hide-on-tablet{
+        display: none;
+    }
+    .show_table_mobile{
+        padding: 0 15px 0 15px;
+    }
+    .navbar_container-search-input{
+        width: auto;
+        top: calc(100% + -10px);
+    }
+    .slider_heading{
+        font-size: 7.2rem;
+    }
+    span.slider_heading{
+        font-size: 6.4rem;
+    }
+    .search{
+        padding: 0 15px 40px 15px;
+    }
+    .search_container-item{
+        margin-bottom: 15px;
+    }
+    .navbar_container-search-input{
+  margin-top: 10px;
+    
+    }
+}
+
+/*Mobile */
+@media (max-width: 46.25em){
+    .hide-on-mobile{
+        display: none;
+    }
+   .navbar_container-menu-icon{
+    margin-right: 20px;
+   }
+   .slider_container {
+    padding: 40px 30px;
+}
+
+.navbar_bar_menu {
+    width: 60%;
+}
+.container_form-heading{
+    font-size: 3rem;
+}
+.container_form-introduce img{
+    width: 100%;
+    height: 100%;
+}
+.form-content{
+    font-size: 1.6rem;
+}
+.chart{
+    padding: 50px 50px;
+}
+.chart_radar a{
+    padding: 20px 6px;
+}
+}

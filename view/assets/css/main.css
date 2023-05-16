@@ -68,7 +68,7 @@ html {
 }
 /* SEARCH */
 .navbar_container-search{
-  position: relative;
+  /* position: relative; */
   text-align: right;
   display: flex;
   justify-content: center;
@@ -299,8 +299,9 @@ h2 {
   padding-right: 10px;
 }
 .form-button {
-  text-align: center;
   padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-button input {
@@ -321,7 +322,6 @@ h2 {
     border-radius: 10px;
     border: solid;
     font-size: 1.6rem;
-    margin-right: 100px;
 }
 
 .form-button input:hover{
@@ -372,7 +372,6 @@ h2 {
     border-radius: 10px;
     border: solid;
     font-size: 1.6rem;
-    margin-right: 100px;
 }
 .chart_form input{
   width: 100%;
@@ -400,6 +399,52 @@ h2 {
 
 
 /*  */
+.navbar_container-search{
+  position: relative;
+  text-align: right; 
+}
+
+.navbar_container-search-icon{
+  font-size: 20px;
+  color: var(--white-color);
+}
+.navbar_container-search-icon:hover,
+.navbar_container-menu-icon:hover{
+  cursor: pointer;
+}
+
+.navbar_container-search-input{
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: auto;
+  margin-top: 63px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  right: 0;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 15%);
+}
+.navbar_container-search-input.active{
+  display: block;
+}
+
+/* .navbar_container-search::after{
+  content: "";
+  display: block;
+  position: relative;
+  /* height: 12px; */
+  /* width: 40px; */
+  /* top: 0; */
+  /* background-color: red; */
+/* } */ 
+
+.nav-input:checked ~ .nav-mobile-search{
+  display: block;
+}
+/* MENU MOBILE */
 .navbar_container-menu{
   display: none;
 }
@@ -421,12 +466,12 @@ h2 {
   position: fixed;
   z-index: 100;
   max-width: 100%;
-  width: 50%;
+  width: 40%;
   height: 100%;
   top: 0;
   right: 0;
   opacity: 0;
-  background: linear-gradient(to right,#fa9e1b,#8d4fff);
+  background: linear-gradient(to right, rgb(130, 210, 210), rgb(156, 162, 216));
   transform: translateX(100%);
   transition: transform linear 0.2s, opacity linear 0.3s ;
 }
@@ -448,10 +493,9 @@ h2 {
   right: 35px;
   top: 30px;
 }
-.bar_menu-close:hover,
-.bar_item-link:hover{
+.navbar_container-link:hover{
   cursor: pointer;
-  color: #ee9621;
+  color: darkgoldenrod;
 }
 .navbar_container_mb_list{
   display: flex;
@@ -464,12 +508,15 @@ h2 {
   list-style: none;
   margin-top: 50px;
 }
-.bar_item-link{
+.navbar_container-link{
+  text-align: left;
   display: block;
   text-decoration: none;
   padding: 20px 0px;
-  font-size: 2.5rem;
-  font-family: Beyond;
-  color: var(--white-color);
+  font-size: 2rem;
   font-weight: 500;
+}
+.navbar_container-link:hover{
+  cursor: pointer;
+  color: darkgoldenrod;
 }

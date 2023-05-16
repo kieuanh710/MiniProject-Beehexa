@@ -5,10 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form scrum value</title>
+    <title>Chart value</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="view/assets/grid.css" />
-    <link rel="stylesheet" href="view/assets/main.css" />
+    <link rel="stylesheet" href="view/assets/css/grid.css">
+    <link rel="stylesheet" href="view/assets/css/main.css">
+    <link rel="stylesheet" href="view/assets/css/responsive.css">
 </head>
 
 <body>
@@ -16,13 +17,13 @@
         <div class="grid wide">
             <div class="navbar_container">
                 <div class="row">
-                    <div class="col l-3 m-0 c-0">
+                    <div class="col l-3 m-6 c-6">
                         <a href="" class="navbar_container-logo-link">
                             <img class="logo-link" src="view/assets/img/scrum.png" alt="Scrum org">
                         </a>
                     </div>
-                    <div class="col l-8 m-12 c-12 navbar_container-list--item">
-                        <ul class="navbar_container-list">
+                    <div class="col l-6 m-0 c-0 navbar_container-list--item hide-on-mobile-tablet">
+                        <ul class="navbar_container-list hide-on-mobile-tablet">
                             <li class="navbar_container-item">
                                 <a href="#" class="navbar_container-link active">About</a>
                             </li>
@@ -40,28 +41,74 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col l-1 m-0 c-0 navbar_container-search">
-                        <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
-                            class="img-small">
-                        <input type="text" id="search-form" class="navbar_container-search-input"
-                            placeholder="Search...">
+                    <div class="col l-3 m-6 c-6 navbar_container-search">
 
+                        <div class="navbar_container-search">
+                            <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
+                                class="img-small">
+                            <input type="text" id="search-form" class="navbar_container-search-input"
+                                placeholder="Search...">
+                        </div>
+                        <div class="navbar_search">
+                            <!-- <div class="navbar_container-search">
+                                        <i class="navbar_container-search-icon fa-solid fa-magnifying-glass"></i>
+                                        <input type="text" id="search-form" class="navbar_container-search-input"
+                                            placeholder="Search...">
+                                    </div> -->
+
+                            <!-- MENU tablet + mobile -->
+                            <div class="navbar_container-menu">
+                                <label for="nav-mobile-input" class="navbar_container-menu hide-on-pc">
+                                    <i class="navbar_container-menu-icon fa-solid fa-bars"></i>
+                                </label>
+                                <input type="checkbox" hidden name="" class="nav-input" id="nav-mobile-input">
+                                <label for="nav-mobile-input" class="navbar_menu_overlay"></label>
+                                <div class="navbar_bar_menu">
+                                    <label for="nav-mobile-input" class="nav_mobile-close">
+                                        <i class="bar_menu-close fa-solid fa-xmark"></i>
+                                    </label>
+                                    <div class="navbar_container_mb_list">
+                                        <ul>
+                                            <li>
+                                                <a href="index.html" class="navbar_container-link">About</a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html" class="navbar_container-link">Training</a>
+                                            </li>
+                                            <li>
+                                                <a href="offers.html" class="navbar_container-link">Certification</a>
+                                            </li>
+                                            <li>
+                                                <a href="news.html" class="navbar_container-link">Community</a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html" class="navbar_container-link">Innovations</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+
     <div class="chart">
         <h1>Your chart</h1>
         <div class="row">
-            <div class="col l-12 m-6 c-12">
+            <div class="col l-12 m-12 c-12">
                 <div class="chart_radar">
                     <canvas id="myChart"></canvas>
-                    <a class="chart_radar-link" href="http://localhost/MiniProject/index.php?controller=question">Back
-                        to
-                        home
-                        page</a>
-                    <button onclick="download()">Download</button>
+                    <div class="form-button">
+                        <a class="form-button--reset"
+                            href="http://localhost/MiniProject/index.php?controller=question">Back
+                            to
+                            home
+                            page</a>
+                        <button onclick="download()">Download</button>
+                    </div>
                 </div>
             </div>
             <!-- <div class="col l-4 m-6 c-12">
@@ -78,7 +125,7 @@
 
             <input class="chart_form__submit" name="submit" type="submit" value="Submit"> -->
         </div>
-    </div> -->
+    </div>
     </div>
 
     </div>
