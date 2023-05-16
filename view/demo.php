@@ -5,27 +5,21 @@
     <title>Contact</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="view/assets/grid.css">
-    <!-- <link rel="stylesheet" href="view/assets/base.css"> -->
     <link rel="stylesheet" href="view/assets/main.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"> -->
 </head>
 
 <body>
     <header class="header">
-        <div class="scroll-top">
-            <i class="fa-solid fa-up"></i>
-        </div>
-        <!-- TOPBAR -->
         <nav class="navbar">
             <div class="grid wide">
                 <div class="navbar_container">
                     <div class="row">
-                        <div class="col l-3 m-0 c-0">
+                        <div class="col l-3 m-6 c-6">
                             <a href="" class="navbar_container-logo-link">
                                 <img class="logo-link" src="view/assets/img/scrum.png" alt="Scrum org">
                             </a>
                         </div>
-                        <div class="col l-8 m-12 c-12 navbar_container-list--item">
+                        <div class="col l-8 m-0 c-0 navbar_container-list--item">
                             <ul class="navbar_container-list">
                                 <li class="navbar_container-item">
                                     <a href="#" class="navbar_container-link active">About</a>
@@ -44,12 +38,11 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col l-1 m-0 c-0 navbar_container-search">
+                        <div class="col l-1 m-6 c-6 navbar_container-search">
                             <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png " alt="" title=""
                                 class="img-small">
                             <input type="text" id="search-form" class="navbar_container-search-input"
                                 placeholder="Search...">
-
                         </div>
                     </div>
                 </div>
@@ -57,7 +50,7 @@
         </nav>
 
 
-        <!-- SLIDER -->
+
         <div class="slider">
             <div class="grid wide">
                 <div class="slider_container">
@@ -84,7 +77,7 @@
             </div>
         </div>
 
-        <!--  -->
+
         <div class="container">
             <div class="container_card">
                 <ul class="container_card-list hide-on-mobile-tablet">
@@ -154,7 +147,7 @@
                     <div class="form-content">
                         <h3 class="form-content--heading">Courage</h3>
                         <div class="form-item">
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($courageQuestions as $question): ?>
                             <?php if ($question['type_name'] == 'courage'): ?>
                             <label class="form-item--content">
                                 <input type="checkbox" name="courage[]" id="<?php echo $question['id']; ?>"
@@ -170,7 +163,7 @@
                     <div class="form-content">
                         <h3 class="form-content--heading">Openness</h3>
                         <div class="form-item">
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($opennessQuestions as $question): ?>
                             <?php if ($question['type_name'] == 'openness'): ?>
                             <div>
                                 <label class="form-item--content">
@@ -186,7 +179,7 @@
                     <div class="form-content">
                         <h3 class="form-content--heading">Focus</h3>
                         <div class="form-item">
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($focusQuestions as $question): ?>
                             <?php if ($question['type_name'] == 'focus'): ?>
 
                             <label class="form-item--content">
@@ -202,7 +195,7 @@
                     <div>
                         <h3 class="form-content--heading">Commitment</h3>
                         <div class="form-item">
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($commitmentQuestions as $question): ?>
                             <?php if ($question['type_name'] == 'commitment'): ?>
 
                             <label class="form-item--content">
@@ -218,7 +211,7 @@
                     <div>
                         <h3 class="form-content--heading">Respect</h3>
                         <div class="form-item">
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($respectQuestions as $question): ?>
                             <?php if ($question['type_name'] == 'respect'): ?>
 
                             <label class="form-item--content">
@@ -231,13 +224,13 @@
                         </div>
                     </div>
                     <div class="form-button">
+                        <a class="form-button--reset"
+                            href="http://localhost/MiniProject/index.php?controller=question">Reset</a>
                         <input type="submit" name="submit" value="Save">
                     </div>
                 </form>
             </div>
         </div>
-
-
 </body>
 
 </html>

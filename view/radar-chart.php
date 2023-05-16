@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form scrum value</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="view/assets/main.css" />
     <link rel="stylesheet" href="view/assets/grid.css" />
+    <link rel="stylesheet" href="view/assets/main.css" />
 </head>
 
 <body>
@@ -54,12 +54,17 @@
     <div class="chart">
         <h1>Your chart</h1>
         <div class="row">
-            <div class="col l-8 m-6 c-12">
+            <div class="col l-12 m-6 c-12">
                 <div class="chart_radar">
                     <canvas id="myChart"></canvas>
+                    <a class="chart_radar-link" href="http://localhost/MiniProject/index.php?controller=question">Back
+                        to
+                        home
+                        page</a>
+                    <button onclick="download()">Download</button>
                 </div>
             </div>
-            <div class="col l-4 m-6 c-12">
+            <!-- <div class="col l-4 m-6 c-12">
                 <div class="chart_form">
                     <form action="">
                         <label for="name">Name</label>
@@ -67,42 +72,29 @@
 
                         <label for="email">Email</label>
                         <!-- <input type="email" id="" name="email" placeholder="Your email.." required> -->
-                        <input type="email" id="" name="email" placeholder="Your email.."
-                            title="The domain portion of the email address is invalid (the portion after the @)."
-                            pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$">
+            <!-- <input type="email" id="" name="email" placeholder="Your email.."
+                title="The domain portion of the email address is invalid (the portion after the @)."
+                pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$">
 
-                        <input class="chart_form__submit" name="submit" type="submit" value="Submit">
-                </div>
-            </div>
+            <input class="chart_form__submit" name="submit" type="submit" value="Submit"> -->
         </div>
-
-    </div>
-    <!-- <form action="index.php?controller=user&action=handleForm" method="POST">
-        <div class="chart_radar">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="chart_form">
-            <form action="">
-                <label for="name">Name</label>
-                <input type="text" id="" name="name" placeholder="Your name.." required>
-
-                <label for="email">Email</label>
-                 <input type="email" id="" name="email" placeholder="Your email.." required> -->
-    <!-- <input type="email" id="" name="email" placeholder="Your email.."
-        title="The domain portion of the email address is invalid (the portion after the @)."
-        pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$">
-
-    <input class="chart_form__submit" name="submit" type="submit" value="Submit">
     </div> -->
-    <!-- </form>  -->
     </div>
+
+    </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     // SETUP
     const data = {
         labels: ["Courage", "Openness", "Focus", "Commitment", "Respect"],
         datasets: [{
             label: "Scrum values",
-            data: [<?= $count1 ?>, <?= $count2 ?>, <?= $count3 ?>, <?= $count4 ?>, <?= $count5 ?>],
+            data: [<?= $countCourage ?>, <?= $countOpenness ?>, <?= $countFocus ?>, <?= $countCommitment ?>,
+                <?= $countRespect ?>
+            ],
+            // data: [1, 2, 4, 3, 5],
             backgroundColor: [
                 "rgba(255, 26, 104, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
@@ -149,12 +141,16 @@
     // render init block
     const myChart = new Chart(document.getElementById("myChart"), config);
 
-    // Instantly assign Chart.js version
-    // const chartVersion = document.getElementById("chartVersion");
-    // chartVersion.innerText = Chart.version;
-    // }
+    function download() {
+        var a = document.createElement('a');
+        const canvas = document.getElementById('myChart');
+        a.download = 'canvas.png';
+
+        a.href = canvas.toDataURL('/image/png', 1);
+        a.click();
+    }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.0.0-beta.12/html2canvas.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
@@ -162,11 +158,3 @@
 </body>
 
 </html>
-<?php 
-
-// print_r($result1);
-// print_r($result2);
-// print_r($result3);
-// print_r($result4);
-// print_r($result5);
-?>

@@ -1,68 +1,65 @@
 <?php
-require_once './models/QuestionModel.php';
+require_once './models/FocusModel.php';
+require_once './models/OpennessModel.php';
+require_once './models/CourageModel.php';
+require_once './models/RespectModel.php';
+require_once './models/CommitmentModel.php';
 class QuestionController extends BaseController{
-  private $questions;
+  private $focusModel, $opennessModel, $courageModel, $respectModel, $commitmentModel;
     public function __construct(){
-      $this->questions = new QuestionModel();
+      $this->focusModel = new FocusModel();
+      $this->opennessModel = new OpennessModel();
+      $this->courageModel = new CourageModel();
+      $this->respectModel = new RespectModel();
+      $this->commitmentModel = new CommitmentModel();
     }
   public function index()
   {
-    $questions = $this->questions->getAll();
+    // $focusModel = new FocusModel();
+    $focusQuestions = $this->focusModel->getAll();
+    $opennessQuestions = $this->opennessModel->getAll();
+    $courageQuestions = $this->courageModel->getAll();
+    $respectQuestions = $this->respectModel->getAll();
+    $commitmentQuestions = $this->commitmentModel->getAll();
+    
     return $this->view('demo', [
-        'questions' => $questions,
+      'focusQuestions' =>$focusQuestions,
+      'opennessQuestions' =>$opennessQuestions,
+      'courageQuestions' =>$courageQuestions,
+      'respectQuestions' =>$respectQuestions,
+      'commitmentQuestions' =>$commitmentQuestions,
+
     ]);
-   
   }
   
   public function update(){
-    $courageQuestion = isset($_POST['courage']) ? implode(",", $_POST['courage']) : array();
-    $opennessQuestion = isset($_POST['openness']) ? implode(",", $_POST['openness']) : "";
-    $focusQuestion = isset($_POST['focus']) ? implode(",", $_POST['focus']) : "";
-    $commitmentQuestion = isset($_POST['commitment']) ? implode(",", $_POST['commitment']) : "";
-    $respectQuestion = isset($_POST['respect']) ? implode(",", $_POST['respect']) : "";
+    $courageQuestion = isset($_POST['courage']) ? implode(",", $_POST['courage']) : 0;
+    $opennessQuestion = isset($_POST['openness']) ? implode(",", $_POST['openness']) : 0;
+    $focusQuestion = isset($_POST['focus']) ? implode(",", $_POST['focus']) : 0;
+    $commitmentQuestion = isset($_POST['commitment']) ? implode(",", $_POST['commitment']) : 0;
+    $respectQuestion = isset($_POST['respect']) ? implode(",", $_POST['respect']) : 0;
     
     
-    $result1 = $this->questions->updateCourage($courageQuestion);
-    $result2 = $this->questions->updateOpenness($opennessQuestion);
-    $result3 = $this->questions->updateFocus($focusQuestion);
-    $result4 = $this->questions->updateCommitment($commitmentQuestion);
-    $result5 = $this->questions->updateRespect($respectQuestion);
+    $this->courageModel->updateQuestion($courageQuestion);
+    $this->opennessModel->updateQuestion($opennessQuestion);
+    $this->focusModel->updateQuestion($focusQuestion);
+    $this->commitmentModel->updateQuestion($commitmentQuestion);
+    $this->respectModel->updateQuestion($respectQuestion);
     
-    $count1 = $this->questions->countCourage();
-    $count2 = $this->questions->countOpenness();
-    $count3 = $this->questions->countFocus();
-    $count4 = $this->questions->countCommitment();
-    $count5 = $this->questions->countRespect();
+    $countCourage = $this->courageModel->countValue();
+    $countOpenness = $this->opennessModel->countValue();
+    $countFocus = $this->focusModel->countValue();
+    $countCommitment = $this->commitmentModel->countValue();
+    $countRespect = $this->respectModel->countValue();
    
-    // print_r($focusQuestion);
+    // // print_r($focusQuestion);
     return $this->view('radar-chart', [
-      'result1'=> $result1,
-      'result2'=> $result2,
-      'result3'=> $result3,
-      'result4'=> $result4,
-      'result5'=> $result5,
-      'count1' => $count1,
-      'count2' => $count2,
-      'count3' => $count3,
-      'count4' => $count4,
-      'count5' => $count5,
+      'countCourage' => $countCourage,
+      'countOpenness' => $countOpenness,
+      'countFocus' => $countFocus,
+      'countCommitment' => $countCommitment,
+      'countRespect' => $countRespect,
     ]);     
         // print_r($_POST);
   }
-  
-  // public function getCount(){
-  //   $result = $this->questions->countCheckedCheckboxes();
-  //   return $this->view('radar-chart', [
-  //     'results'=> $result,
-  //   ]);
-         
-  //         // print_r($_POST);
-  // }
-  // public function countCheckedCheckboxes() {
-  //   $count = $this->questions->countCheckedCheckboxes();
-  //   $data = array('count' => $count);
-  //   return $data;
-  // }
-
-
 }
